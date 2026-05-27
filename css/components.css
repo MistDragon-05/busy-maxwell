@@ -1,0 +1,558 @@
+/* --- Component Layouts & Visuals --- */
+
+/* Hero Header Section */
+.hero-section {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-headline {
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--text-light);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.hero-headline span.serif-italic {
+  font-family: var(--font-serif-italic);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent-green);
+  letter-spacing: -0.5px;
+}
+
+.hero-subheadline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 720px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-weight: 350;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Bento Grid Container */
+.bento-container-header {
+  max-width: 1200px;
+  margin: 60px auto 24px auto;
+  padding: 0 20px;
+}
+
+.bento-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bento-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px 20px;
+}
+
+/* Bento Cards styling */
+.bento-card {
+  position: relative;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.bento-card:hover {
+  border-color: var(--panel-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bento-card-media {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-card-media img {
+  transform: scale(1.05);
+}
+
+/* Interactive SVG animations inside bento */
+.bento-card-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,204,0.03) 0%, transparent 70%);
+  position: relative;
+}
+
+.bento-card-svg svg {
+  width: 60%;
+  max-width: 180px;
+  height: auto;
+  transition: var(--transition-smooth);
+}
+
+.bento-card:hover .bento-card-svg svg {
+  transform: scale(1.08);
+}
+
+/* Text Overlays inside Bento (Hidden initially, visible on hover) */
+.bento-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(11, 11, 0, 0.95) 0%, rgba(11, 11, 0, 0.5) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--transition-smooth);
+}
+
+.bento-card:hover .bento-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bento-tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  letter-spacing: 1px;
+}
+
+.bento-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.bento-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Spans for Asymmetry */
+.bento-w2 {
+  grid-column: span 2;
+}
+
+.bento-h2 {
+  grid-row: span 2;
+}
+
+/* Bento Info Panel (Dynamic Brand Card) */
+.bento-info-card {
+  padding: 32px;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(255, 255, 252, 0.02) 0%, rgba(26, 26, 0, 0.2) 100%);
+}
+
+.bento-info-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bento-info-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  font-family: var(--font-sans);
+}
+
+.bento-info-body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.bento-info-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  margin-top: 16px;
+}
+
+.bento-info-footer svg {
+  transition: var(--transition-bounce);
+}
+
+.bento-card:hover .bento-info-footer svg {
+  transform: translateX(4px);
+}
+
+/* --- Section 3: Contrast Section (Traditional vs Flow) --- */
+.comparison-section {
+  max-width: 1200px;
+  margin: 60px auto 100px auto;
+  padding: 0 20px;
+}
+
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-weight: 350;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.compare-row:last-child {
+  border-bottom: none;
+}
+
+.compare-header {
+  background: rgba(255, 255, 252, 0.02);
+  font-weight: 700;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.compare-cell {
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.compare-cell.new-way {
+  border-left: 1px solid var(--panel-border);
+  color: var(--text-light);
+}
+
+.compare-cell.new-way strong,
+.compare-cell.new-way b {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.compare-cell.old-way {
+  color: var(--text-muted);
+}
+
+/* --- PAGE 2: How It Works & Packages --- */
+
+/* Steps Timeline */
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto 100px auto;
+  padding: 0 20px;
+}
+
+.step-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: var(--transition-smooth);
+}
+
+.step-card:hover {
+  border-color: var(--panel-border-hover);
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 204, 0.1);
+  line-height: 1;
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+}
+
+.step-card:hover .step-number {
+  color: var(--accent-green);
+  transform: scale(1.05);
+}
+
+.step-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  letter-spacing: 1px;
+}
+
+.step-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Single/Transparent Package Card Design (User requested exactly 1 card) */
+.packages-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-package-wrapper {
+  width: 100%;
+  max-width: 680px;
+  background: linear-gradient(135deg, rgba(26, 26, 0, 0.7) 0%, rgba(11, 11, 0, 0.95) 100%);
+  border: 1px solid var(--accent-green);
+  border-radius: 24px;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 204, 0.05);
+}
+
+.package-badge {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  background: rgba(255, 255, 204, 0.1);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.package-header {
+  margin-bottom: 30px;
+}
+
+.package-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.package-for {
+  font-size: 1rem;
+  color: var(--accent-muted);
+  font-weight: 400;
+}
+
+.package-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-light);
+  margin-top: 15px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.package-price span {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.package-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 30px 0;
+}
+
+.package-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1.05rem;
+  color: var(--text-light);
+}
+
+.package-features li svg {
+  fill: var(--accent-green);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.package-features li span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 2px;
+}
+
+.package-cta-btn {
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  font-size: 1.05rem;
+  border-radius: 8px;
+}
+
+/* --- PAGE 3: Booking Page --- */
+.booking-section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.booking-header {
+  margin-bottom: 50px;
+}
+
+.booking-wrapper {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 10px;
+  overflow: hidden;
+  max-width: 850px;
+  margin: 0 auto 50px auto;
+  height: 650px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.booking-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 240px;
+  }
+  .bento-w2 {
+    grid-column: span 2;
+  }
+  .steps-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+  }
+  .bento-w2 {
+    grid-column: span 1;
+  }
+  .bento-h2 {
+    grid-row: span 1;
+  }
+  .compare-row {
+    grid-template-columns: 1fr;
+  }
+  .compare-cell {
+    padding: 20px 24px;
+  }
+  .compare-cell.new-way {
+    border-left: none;
+    border-top: 1px solid var(--panel-border);
+    padding-top: 16px;
+  }
+  .single-package-wrapper {
+    padding: 30px;
+  }
+  .booking-wrapper {
+    height: 750px; /* Give it more room on mobile if iframe wraps */
+  }
+}
